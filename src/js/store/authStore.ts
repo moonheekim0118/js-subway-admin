@@ -93,7 +93,7 @@ class AuthStore extends Store<IState> {
         logout_success: false,
         logout_error: null,
       });
-      // 서비스에 요청 보낸다.
+      authService.logout();
     },
     [actions.LOGOUT_SUCCESS]: () => {
       this.setState({

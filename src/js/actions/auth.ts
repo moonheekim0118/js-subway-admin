@@ -39,7 +39,7 @@ export const LOGOUT_REQUEST = () => {
 };
 
 export const LOGOUT_SUCCESS = () => {
-  return { type: actions.LOGIN_SUCCESS };
+  return { type: actions.LOGOUT_SUCCESS };
 };
 export const LOGOUT_ERROR = (error: string) => {
   return { type: actions.LOGOUT_FAILURE, error };

@@ -28,7 +28,6 @@ class Router<Ipage> {
 
   private bindEvents(): void {
     window.addEventListener("popstate", () => {
-      console.log(history.state);
       this.render();
     });
   }

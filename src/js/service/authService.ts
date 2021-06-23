@@ -1,5 +1,5 @@
 import router from "@/router";
-import { LOGIN_SUCCESS, LOGIN_ERROR } from "@/actions/auth";
+import { LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_SUCCESS } from "@/actions/auth";
 import { ILoginUser, ISignUpUser } from "@/types";
 import { MESSAGE, PATH } from "@/constants";
 import { authDB } from "@/data";
@@ -35,7 +35,7 @@ const authService = {
   },
 
   logout: (): void => {
-    // authStore.updateState({ isLoggedIn: false });
+    authStore.dispatch(LOGOUT_SUCCESS());
     // router.push(PATH.STATIONS);
   },
 };

@@ -1,5 +1,6 @@
 import Component from "@/core/component";
 import handleLink from "@/router/handleLink";
+import { LOGOUT_REQUEST } from "@/actions/auth";
 import { authStore } from "@/store";
 import { $ } from "@/utils/dom";
 
@@ -7,6 +8,10 @@ class Header extends Component {
   constructor() {
     super();
     this.bindEvents();
+  }
+
+  protected useSelector() {
+    return authStore.getState();
   }
 
   protected initDom() {
@@ -23,11 +28,11 @@ class Header extends Component {
       handleLink(e);
       return;
     }
-    // authService.logout();
+    authStore.dispatch(LOGOUT_REQUEST());
   }
 
   protected render(): void {
-    const { isLoggedIn } = authStore.getState();
+    const { isLoggedIn } = this.useSelector();
     this.$container.innerHTML = `
     <a href="/" class="text-black">
       <h1 class="text-center font-bold">🚇 지하철 노선도</h1>
